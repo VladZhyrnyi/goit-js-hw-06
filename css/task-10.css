@@ -1,0 +1,13 @@
+#boxes {
+    padding: 20px;
+    margin-top: 20px;
+
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+
+    gap: 20px;
+
+    border: 1px solid #222222;
+}

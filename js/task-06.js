@@ -43,15 +43,16 @@ const checkInput = (event) => {
 
     const element = event.currentTarget;
 
+    console.log(element.value);
+
     if (!element.value) {
-        classCheckAndRemove(element, "invalid");
-        classCheckAndRemove(element, "valid");
+        element.classList.remove('valid', 'invalid');
     } else if (Number.parseInt(element.dataset.length) === element.value.length) {
-        classCheckAndRemove(element, "invalid");
+        element.classList.remove('invalid');
         element.classList.add('valid');
     } else {
-        classCheckAndRemove(element, "valid");
-        element.classList.add("invalid");
+        element.classList.remove('valid');
+        element.classList.add('invalid');
     };
 };
 
