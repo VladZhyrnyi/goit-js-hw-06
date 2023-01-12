@@ -55,4 +55,3 @@ function createBoxes() {
 function destroyBoxes() {
   boxesRef.innerHTML = '';
 }
-
