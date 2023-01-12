@@ -33,16 +33,18 @@ console.log(controls);
 
 const boxesRef = document.querySelector('#boxes');
 
-controls[1].addEventListener('click', createBoxes);
+controls[1].addEventListener('click', () => {
+  createBoxes(controls[0].value);
+});
 controls[2].addEventListener('click', destroyBoxes)
 
 
 
-function createBoxes() {
+function createBoxes(amount) {
   destroyBoxes();
 
   const boxes = [];
-  for (let i=0; i<controls[0].value; i++) {
+  for (let i=0; i<amount; i++) {
     const divEl = document.createElement('div');
     divEl.style.width = `${30 + i * 10}px`;
     divEl.style.height = `${30 + i * 10}px`;
