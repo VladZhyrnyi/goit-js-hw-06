@@ -17,43 +17,24 @@ data-length.
  - Для додавання стилів використовуй CSS-класи valid і invalid, які ми вже 
 додали у вихідні файли завдання.
 
-#validation-input {
-  border: 3px solid #bdbdbd;
-}
-
-#validation-input.valid {
-  border-color: #4caf50;
-}
-
-#validation-input.invalid {
-  border-color: #f44336;
-}
-
 */
 
-const inputRef = document.querySelector('#validation-input');
+const inputRef = document.querySelector("#validation-input");
 
-const classCheckAndRemove = (element, cls) => {
-  if (element.classList.contains(cls)) {
-    element.classList.remove(cls);
+function checkInput(event) {
+  const element = event.currentTarget;
+
+  if (!element.value) {
+    element.classList.remove("valid", "invalid");
+
+  } else if (Number.parseInt(element.dataset.length) === element.value.length) {
+    element.classList.remove("invalid");
+    element.classList.add("valid");
+    
+  } else {
+    element.classList.remove("valid");
+    element.classList.add("invalid");
   };
-}
-
-const checkInput = (event) => {
-
-    const element = event.currentTarget;
-
-    console.log(element.value);
-
-    if (!element.value) {
-        element.classList.remove('valid', 'invalid');
-    } else if (Number.parseInt(element.dataset.length) === element.value.length) {
-        element.classList.remove('invalid');
-        element.classList.add('valid');
-    } else {
-        element.classList.remove('valid');
-        element.classList.add('invalid');
-    };
 };
 
-inputRef.addEventListener('blur', checkInput);
+inputRef.addEventListener("blur", checkInput);

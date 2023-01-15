@@ -34,10 +34,9 @@ function formSubmitHandler(event) {
     if (formElements.email.value && formElements.password.value) {
         const email = formElements.email.value;
         const password = formElements.password.value;
-        console.log({email, password});
-
+        
         event.currentTarget.reset()
     } else {
         return alert("All fields are required!");
     };
-}
+};

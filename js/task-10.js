@@ -23,22 +23,25 @@ input і натискає кнопку Створити, після чого р�
 
 */
 
-function getRandomHexColor() {
-  return `#${Math.floor(Math.random() * 16777215).toString(16)}`;
-}
 
 const controls = document.querySelector('#controls').children;
-
-console.log(controls);
 
 const boxesRef = document.querySelector('#boxes');
 
 controls[1].addEventListener('click', () => {
   createBoxes(controls[0].value);
 });
-controls[2].addEventListener('click', destroyBoxes)
+
+controls[2].addEventListener('click', destroyBoxes);
 
 
+function getRandomHexColor() {
+  return `#${Math.floor(Math.random() * 16777215).toString(16)}`;
+};
+
+function destroyBoxes() {
+  boxesRef.innerHTML = "";
+};
 
 function createBoxes(amount) {
   destroyBoxes();
@@ -52,8 +55,4 @@ function createBoxes(amount) {
     boxes.push(divEl);
   }
   boxesRef.append(...boxes);
-}
-
-function destroyBoxes() {
-  boxesRef.innerHTML = '';
-}
+};
